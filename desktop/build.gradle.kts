@@ -1,5 +1,9 @@
 plugins {
-    id("java")
+    java
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
 group = "com.dth.genetic"

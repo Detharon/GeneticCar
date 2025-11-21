@@ -528,8 +528,8 @@ public class NewAlgorithmDialog extends JDialog {
 
 	if (!valid) {
 	    JOptionPane.showMessageDialog(this,
-		"Podano niepoprawn� warto��",
-		"B��d",
+		"Podano niepoprawną wartość",
+		"Błąd",
 		JOptionPane.ERROR_MESSAGE
 	    );
 	    return valid;
@@ -543,8 +543,8 @@ public class NewAlgorithmDialog extends JDialog {
 
 	if (s < 3 || s > 20) {
 	    JOptionPane.showMessageDialog(this,
-		"Maksymalna dopuszczalna liczba segment�w to 20",
-		"B��d",
+		"Maksymalna dopuszczalna liczba segmentów to 20",
+		"Błądd",
 		JOptionPane.ERROR_MESSAGE
 	    );
 	    segments.setBackground(ERRORCOLOR);
@@ -788,7 +788,7 @@ public class NewAlgorithmDialog extends JDialog {
 	JPanel settingsPanel = createSettingsPanel();
 
 	JTabbedPane tabbedPane = new JTabbedPane();
-	tabbedPane.addTab("Populacja pocz�tkowa", populationPanel);
+	tabbedPane.addTab("Populacja początkowa", populationPanel);
 	tabbedPane.addTab("Ustawienia", settingsPanel);
 
 	add(tabbedPane);
@@ -805,7 +805,7 @@ public class NewAlgorithmDialog extends JDialog {
 	specPanel.add(new JSeparator(), "growx, wrap, span 5");
 
 	//Car density
-	specPanel.add(new JLabel("G�sto��:"));
+	specPanel.add(new JLabel("Gęstość:"));
 
 	specPanel.add(new JLabel("Min:"));
 	minCarDensity = new JTextField(6);
@@ -827,7 +827,7 @@ public class NewAlgorithmDialog extends JDialog {
 	specPanel.add(maxCarFriction, "wrap");
 
 	//Car restitution
-	specPanel.add(new JLabel("Elastyczno��:"));
+	specPanel.add(new JLabel("Elastyczność:"));
 
 	specPanel.add(new JLabel("Min:"));
 	minCarRestitution = new JTextField(6);
@@ -838,7 +838,7 @@ public class NewAlgorithmDialog extends JDialog {
 	specPanel.add(maxCarRestitution, "wrap");
 
 	//Segment length
-	specPanel.add(new JLabel("D�ugo�� segmentu:"));
+	specPanel.add(new JLabel("Długość segmentu:"));
 
 	specPanel.add(new JLabel("Min:"));
 	minSegmentLength = new JTextField(6);
@@ -849,17 +849,17 @@ public class NewAlgorithmDialog extends JDialog {
 	specPanel.add(maxSegmentLength, "wrap");
 
 	//Number of segments
-	specPanel.add(new JLabel("Liczba segment�w:"));
+	specPanel.add(new JLabel("Liczba segmentów:"));
 	segments = new JTextField(6);
 	specPanel.add(segments, "skip, growx, wrap");
 
 	//Wheel --------------------------------------------------
 
-	specPanel.add(new JLabel("<html><b>Specyfikacje k�</b></html>"), "wrap");
+	specPanel.add(new JLabel("<html><b>Specyfikacje kół</b></html>"), "wrap");
 	specPanel.add(new JSeparator(), "growx, wrap, span 5");
 
 	//Wheel density
-	specPanel.add(new JLabel("G�sto��:"));
+	specPanel.add(new JLabel("Gęstość:"));
 
 	specPanel.add(new JLabel("Min:"));
 	minWheelDensity = new JTextField(6);
@@ -879,7 +879,7 @@ public class NewAlgorithmDialog extends JDialog {
 	maxWheelFriction = new JTextField(6);
 	specPanel.add(maxWheelFriction, "wrap");
 	//Wheel restitution
-	specPanel.add(new JLabel("Elastyczno��:"));
+	specPanel.add(new JLabel("Elastyczność:"));
 
 	specPanel.add(new JLabel("Min:"));
 	minWheelRestitution = new JTextField(6);
@@ -890,7 +890,7 @@ public class NewAlgorithmDialog extends JDialog {
 	specPanel.add(maxWheelRestitution, "wrap");
 
 	//Wheel radius
-	specPanel.add(new JLabel("Promie� ko�a:"));
+	specPanel.add(new JLabel("Promień koła:"));
 
 	specPanel.add(new JLabel("Min:"));
 	minWheelRadius = new JTextField(6);
@@ -901,11 +901,11 @@ public class NewAlgorithmDialog extends JDialog {
 	specPanel.add(maxWheelRadius, "wrap");
 
 	//Number of wheels
-	specPanel.add(new JLabel("Liczba k�:"));
+	specPanel.add(new JLabel("Liczba kół:"));
 	wheels = new JTextField(6);
 	specPanel.add(wheels, "skip, wrap push");
 
-	defaultSpecButton = new JButton("Domy�lne");
+	defaultSpecButton = new JButton("Domyślne");
 	defaultSpecButton.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
 		defaultSpecButtonActionPerformed();
@@ -988,7 +988,7 @@ public class NewAlgorithmDialog extends JDialog {
 	});
 	tablePanel.add(removeAllButton);
 
-	fillSpecs = new JCheckBox("Wype�nij specyfikacje");
+	fillSpecs = new JCheckBox("Wypełnij specyfikacje");
 	fillSpecs.setSelected(true);
 	tablePanel.add(fillSpecs);
 
@@ -998,10 +998,10 @@ public class NewAlgorithmDialog extends JDialog {
     private JPanel createSettingsPanel() {
 	JPanel settingsPanel = new JPanel(new MigLayout());
 
-	settingsPanel.add(new JLabel("<html><b>Ustawienia krzy�owania</b></html>"), "wrap");
+	settingsPanel.add(new JLabel("<html><b>Ustawienia krzyżowania</b></html>"), "wrap");
 	settingsPanel.add(new JSeparator(), "growx, wrap, span 2");
 
-	settingsPanel.add(new JLabel("Prawdopodobie�stwo(%):"));
+	settingsPanel.add(new JLabel("Prawdopodobieństwo(%):"));
 	crossoverProbabilitySpinner = new JSpinner(new SpinnerNumberModel(75, 0, 100, 1.0f));
 	settingsPanel.add(crossoverProbabilitySpinner, "wrap");
 
@@ -1026,7 +1026,7 @@ public class NewAlgorithmDialog extends JDialog {
 	fitnessMethodComboBox = new JComboBox<String>(AlgorithmSettings.FITNESS_METHODS);
 	settingsPanel.add(fitnessMethodComboBox, "growx, wrap, hidemode 3");
 
-	selectionLabel2 = new JLabel("Wielko�� turnieju:");
+	selectionLabel2 = new JLabel("Wielkość turnieju:");
 	selectionLabel2.setVisible(false);
 	settingsPanel.add(selectionLabel2, "hidemode 3");
 	tournamentSizeSpinner = new JSpinner(new SpinnerNumberModel(3, 3, 100, 1));
@@ -1040,7 +1040,7 @@ public class NewAlgorithmDialog extends JDialog {
 	settingsPanel.add(new JLabel("<html><b>Ustawienia mutacji</b></html>"), "wrap");
 	settingsPanel.add(new JSeparator(), "growx, wrap, span 2");
 
-	settingsPanel.add(new JLabel("Prawdopodobie�stwo(%):"));
+	settingsPanel.add(new JLabel("Prawdopodobieństwo(%):"));
 	mutationProbabilitySpinner = new JSpinner(new SpinnerNumberModel(5, 0, 100, 1.0f));
 	settingsPanel.add(mutationProbabilitySpinner, "wrap");
 
@@ -1048,7 +1048,7 @@ public class NewAlgorithmDialog extends JDialog {
 
 	JPanel worldPanel = new JPanel(new MigLayout());
 
-	worldPanel.add(new JLabel("<html><b>Ustawienia �wiata</b></html>"), "wrap");
+	worldPanel.add(new JLabel("<html><b>Ustawienia świata</b></html>"), "wrap");
 	worldPanel.add(new JSeparator(), "growx, wrap, span 2");
 
 	worldPanel.add(new JLabel("Grawitacja:"));
@@ -1073,7 +1073,7 @@ public class NewAlgorithmDialog extends JDialog {
 	});
 	menu.add(save);
 
-	JMenuItem remove = new JMenuItem("Usu�");
+	JMenuItem remove = new JMenuItem("Usuń");
 	remove.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent evt) {
 		removePopupActionPerformed();

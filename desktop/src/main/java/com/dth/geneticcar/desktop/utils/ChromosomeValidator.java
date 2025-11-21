@@ -39,7 +39,7 @@ public class ChromosomeValidator {
 		if (i % 2 == 0) Integer.parseInt(tempPart[i]);
 		else Float.parseFloat(tempPart[i]);
 	    } catch (NumberFormatException ex) {
-		error = "Jedna z liczb zosta�a podana w z�ym formacie: " + tempPart[i];
+		error = "Jedna z liczb została podana w złym formacie: " + tempPart[i];
 		return false;
 	    }
 	}
@@ -50,7 +50,7 @@ public class ChromosomeValidator {
 	    try {
 		Integer.parseInt(tempPart[i]);
 	    } catch (NumberFormatException ex) {
-		error = "Jedna z liczb zosta�a podana w z�ym formacie: " + tempPart[i] + ". Wymagana jest liczba ca�kowita.";
+		error = "Jedna z liczb została podana w złym formacie: " + tempPart[i] + ". Wymagana jest liczba ca�kowita.";
 		return false;
 	    }
 	}
@@ -61,7 +61,7 @@ public class ChromosomeValidator {
 	    try {
 		Float.parseFloat(tempPart[i]);
 	    } catch (NumberFormatException ex) {
-		error = "Jedna z liczb zosta�a podana w z�ym formacie: " + tempPart[i];
+		error = "Jedna z liczb została podana w złym formacie: " + tempPart[i];
 		return false;
 	    }
 	}
@@ -70,7 +70,7 @@ public class ChromosomeValidator {
 	    try {
 		Float.parseFloat(part[i]);
 	    } catch (NumberFormatException ex) {
-		error = "Jedna z liczb zosta�a podana w z�ym formacie: " + tempPart[i];
+		error = "Jedna z liczb została podana w złym formacie: " + tempPart[i];
 		return false;
 	    }
 	}

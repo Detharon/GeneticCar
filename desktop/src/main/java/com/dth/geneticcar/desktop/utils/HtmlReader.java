@@ -1,37 +1,23 @@
 package com.dth.geneticcar.desktop.utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class HtmlReader {
-    public HtmlReader() {
-    }
 
-    public static String readHtml(String file) {
-	BufferedReader br = null;
-	StringBuilder sb = new StringBuilder("");
-
-	try {
-	    br = new BufferedReader(new FileReader(file));
-	    String line;
-
-	    while ((line = br.readLine()) != null) {
-		sb.append(line);
-	    }
-
-	    sb.toString();
-	} catch (Exception ex) {
-
-	} finally {
-	    if (br != null)
-		try {
-		    br.close();
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
+    public static String readHtml(String fileLocation) {
+	// TODO: Use Files.readString() in newer Java
+	String content = "";
+	try (Stream<String> stream = Files.lines(Paths.get(fileLocation), StandardCharsets.UTF_8)) {
+	    content = stream.collect(Collectors.joining(System.lineSeparator()));
+	} catch (IOException e) {
+	    e.printStackTrace();
 	}
-
-	return new String(sb.toString());
+	return content;
     }
+
 }

@@ -1,0 +1,174 @@
+<html lang="pl">
+<body>
+<h1>
+    <span style="color:#008080;">Nowy algorytm</span></h1>
+<p>
+    Jest to kreator pozwalający na utworzenie algorytmu genetycznego</p>
+<h2>
+    Specyfikacje</h2>
+<p>
+    Specyfikacje określają cechy kół oraz karoserii pojazdu. Trzy cechy określają materiał, z jakiego zbudowane są
+    poszczególne części, w nawiasie podano dopuszczalne wartości</p>
+<ul>
+    <li>
+        <strong>Gęstość [0.1; 10] </strong>Jest to gęstość kół oraz segmentów karoserii, wyższa gęstość oznacza większą
+        masę.
+    </li>
+    <li>
+        <strong>Tarcie [0; 1]</strong> Jest to tarcie karoserii oraz kół o podłoże, wartość 0 oznacza, że tarcie w ogóle
+        nie występuje, natomiast przy 1 jest maksymalnie duże.
+    </li>
+    <li>
+        <strong>Sprężystość [0; 1]</strong> Sprężystość określa zachowanie karoserii oraz kół podczas kontaktu z
+        podłożem. W celu jego wyjaśnienia rozważmy przykład z rzutem piłką o podłogę. Ustawienie wartości 0 spowoduje,
+        że piłka przy kontakcie z podłogą pozostanie w bezruchu (zderzenie doskonale niesprężyste), natomiast ustawienie
+        wartości 1 spowoduje, że piłka odbije się i wróci w przeciwną stronę z taką samą prędkością (zdarzenie doskonale
+        sprężyste).
+    </li>
+</ul>
+<p>
+    A cechy samych kół oraz segmentów karoserii określa:</p>
+<ul>
+    <li>
+        <strong>Liczba segmentów [3; 20]</strong> Będąca liczbą segmentów karoserii z których składa się każdy z
+        pojazdów.
+    </li>
+    <li>
+        <strong>Liczba kół [3; 20]</strong> Jest liczbą kół, które posiada każdy pojazd. Dodatkowym ograniczeniem jest
+        fakt, że liczba ta nie może przekraczać liczby segmentów karoserii.
+    </li>
+    <li>
+        <strong>Długość segmentu [0.1; 2]</strong> Jest to długość poszczególnego segmentu karoserii, liczona od środku
+        pojazdu, do jego najbardziej wysuniętego punktu.
+    </li>
+    <li>
+        <strong>Promień koła [0.1; 0.5]</strong> Jest to promień koła pojazdu.
+    </li>
+</ul>
+<p>
+    Wszystkie wartości podawane są jako maksimum oraz minimum. Powstały w ten sposób zakres używany jest przy
+    generowaniu losowych osobników, ale także przy pracy algorytmu, podczas mutacji. Jeżeli promień koła zostanie
+    ustalony na [0.2 - 0.25], to mutacja nie spowoduje powstania osobników, których koła są większe lub mniejsze.</p>
+<h2>
+    Utworzenie populacji</h2>
+<p>
+    Populacje można tworzyć na dwa sposoby:</p>
+<ol>
+    <li>
+        Wygenerowanie losowej populacji, opcja ta wymaga uprzedniego wypełnienia specyfikacji, na jej podstawie zostanie
+        wygenerowana populacja losowa.&nbsp;
+    </li>
+    <li>
+        Wczytanie istniejącej populacji. Jeżeli zaznaczona jest opcja Wypełnij specyfikacje, to wczytanie istniejącej
+        populacji spowoduje automatyczne wypełnienie specyfikacji w oparciu o całą populację, zarówno osobników już w
+        niej będących, jak i dopiero dodanych.
+    </li>
+</ol>
+<p>
+    Nie ma przeszkód w łączeniu obu tych metod, tzn. część osobników może być wczytana, nawet z różnych populacji, a
+    część wygenerowana losowo.</p>
+<h2>
+    Zapisywanie populacji</h2>
+<p>
+    Przycisk zapisz pozwala na zapisanie całej istniejącej populacji do pliku.&nbsp;</p>
+<p>
+    Można zapisać poszczególnych osobników, zaznaczając ich na liście (zaznaczenie wielu osobników należy wykonywać
+    trzymając przycisk shift lub ctrl), a następnie otworzyć menu kontekstowe prawym przyciskiem myszy i wybrać opcję
+    Zapisz.</p>
+<h2>
+    Ustawienia</h2>
+<p>
+    Ustawienia pozwalają określić w jaki sposób algorytm genetyczny będzie działać, składają się na nie następujące
+    opcje.</p>
+<p>
+    &nbsp;</p>
+<ul>
+    <li>
+        <strong>Prawdopodobieństwo krzyżowania [0; 100]</strong> określa jaki procent populacji (statystycznie) weźmie
+        udział w krzyżowaniu, dla wartości 0 żaden osobnik nigdy nie będzie krzyżowany, natomiast dla wartości 100 cała
+        populacja zostanie poddana krzyżowaniu. Domyślna wartość, czyli 75, oznacza, że statystycznie 75% osobników
+        weźmie udział w reprodukcji, a 25% przejdzie do kolejnego etapu bez zmian, przynajmniej podczas krzyżowania,
+        gdyż nadal mogą ulec zmianie podczas mutacji.
+    </li>
+    <li>
+        <strong>Metoda krzyżowania</strong> określa w jaki sposób osobnik będzie krzyżowany, do wyboru są trzy sposoby:
+        <ul>
+            <li>
+                <strong>Metoda wymieniająca</strong>, w której geny rodziców będą ze sobą losowo wymieniane, na przykład
+                dla fragmentu genów rodziców [<span style="color:#ff0000;">1</span>,<span
+                    style="color:#ff0000;">2</span>,<span style="color:#ff0000;">1</span>] oraz [<span
+                    style="color:#00ff00;">3</span>,<span style="color:#00ff00;">3</span>,<span
+                    style="color:#00ff00;">3</span>] przykładowe potomstwo to [<span
+                    style="color:#ff0000;">1</span>,<span style="color:#00ff00;">3</span>,<span
+                    style="color:#ff0000;">1</span>] oraz [<span style="color:#00ff00;">3</span>,<span
+                    style="color:#ff0000;">2</span>,<span style="color:#00ff00;">3</span>]. Jeżeli jedno z dzieci
+                dostanie materiał genetyczny od rodzica pierwszego, to drugie automatycznie ma przydzielony od rodzica
+                drugiego, zapobiega to utracie genów.
+            </li>
+            <li>
+                <strong>Metoda uśredniająca</strong>, potomstwo rodziców&nbsp;[<span
+                    style="color: rgb(255, 0, 0);">1</span>,<span style="color: rgb(255, 0, 0);">2</span>,<span
+                    style="color: rgb(255, 0, 0);">1</span>] oraz&nbsp;[<span
+                    style="color: rgb(0, 255, 0);">3</span>,<span style="color: rgb(0, 255, 0);">3</span>,<span
+                    style="color: rgb(0, 255, 0);">3</span>] będzie posiadać uśrednione ceny, tzn. dziećmi będą 2
+                identyczne osobniki&nbsp;[(<span style="color: rgb(255, 0, 0);">1</span><span
+                    style="color:#000000;">+</span><span style="color:#00ff00;">3</span>)/2,(<span
+                    style="color: rgb(255, 0, 0);">2</span><span style="color:#000000;">+</span><span
+                    style="color:#00ff00;">3</span>)/2,(<span style="color: rgb(255, 0, 0);">1</span><span
+                    style="color:#000000;">+</span><span style="color:#00ff00;">3</span><span
+                    style="color:#000000;">)/2</span>] = [<span style="color:#ee82ee;">2</span>; <span
+                    style="color:#ee82ee;">2.5</span>; <span style="color:#ee82ee;">2</span>]. Metoda ta traci pewne
+                geny, ale jednocześnie powoduje powstawanie nowych.
+            </li>
+            <li>
+                <strong>Metoda uśredniająca losowa</strong>, działa podobnie jak metoda uśredniająca, ale podział nie
+                jest symetryczny. Rozważmy krzyżowanie jednego genu o dwóch wartościach, <span
+                    style="color:#ff0000;">2</span> oraz <span style="color:#00ff00;">3</span>, w metodzie wymieniającej
+                dziecko posiadało gen <span style="color:#ff0000;">2</span> lub <span style="color:#00ff00;">3</span>. W
+                metodzie uśredniającej zawsze<span style="color:#ee82ee;"> 2.5</span>, natomiast w metodzie
+                uśredniającej losowej wszystkie wartości pomiędzy <span style="color:#ff0000;">2</span> oraz <span
+                    style="color:#00ff00;">3</span>, łącznie z nimi samymi, są możliwe. Algorytm losuje pewien punkt
+                podziału z zakresu 0 do 1, który określa stosunek cech rodziców w kreowaniu cechy dziecka, szczególnym
+                przypadkiem ten metody jest metoda uśredniająca, gdzie punkt podziału zawsze wynosi 0.5 (połowa cechy
+                pierwszego rodzica + połowa cechy drugiego rodzica). Przykładowo, dla rodziców z genem o wartościach&nbsp;<span
+                    style="color: rgb(255, 0, 0);">2</span>&nbsp;oraz&nbsp;<span style="color: rgb(0, 255, 0);">3</span><span
+                    style="color:#000000;"> oraz wylosowanym punktem podziału 0.3, 30% genu jednego rodzica, oraz 70%&nbsp;genu&nbsp;drugiego rodzica utworzy gen dziecka, tj. (2*0.3+3*0.7)=</span><span
+                    style="color:#800080;">2.7</span>, a dla drugiego:&nbsp;(2*0.7+3*0.3)=<span style="color:#800080;">2.3</span>.
+            </li>
+        </ul>
+    </li>
+    <li>
+        <strong>Metoda selekcji</strong>, do wyboru są znane z literatury:
+        <ul>
+            <li>
+                <strong>Metoda koła ruletki</strong>, czyli selekcja proporcjonalna. Poprzez modyfikacje funkcji
+                przystosowania możemy zmieniać nacisk selektywny tej metody. W modyfikacji &quot;min = 0&quot;, od
+                wartości przystosowania wszystkich osobników odejmowana jest wartość przystosowania najsłabszego z nich,
+                czyli za każdym razem, przynajmniej 1 osobnik będzie miał zerową wartość funkcji przystosowania, jest to
+                sposób na zwiększenie nacisku selektywnego, szczególnie wtedy, gdy różnice pomiędzy przystosowaniem
+                poszczególnym osobników są niewielkie, przykładowo, populacja z przystosowaniami {60,62,65,71} po
+                przekształceniu będzie wynosić odpowiednio {0,2,3,11}. Modyfikacja &quot;pierwiastek&quot; zwyczajnie
+                pierwiastkuje funkcje przystosowania wszystkich osobników, co znacznie zmniejsza nacisk selektywny.
+            </li>
+            <li>
+                <strong>Metoda turniejowa</strong>, w której liczba turniejów zawsze jest równa liczbie osobników w
+                populacji, natomiast ich wielkość ustala użytkownik.
+            </li>
+        </ul>
+    </li>
+    <li>
+        Zaznaczenie opcji sukcesja elitarna spowoduje zapamiętanie najlepszego osobnika i przywrócenie go po użyciu
+        operatorów genetycznych. Oznacza to, że weźmie on udział w selekcji, reprodukcji oraz mutacji, dostarczając swój
+        materiał genetyczny do populacji, ale po ich użyciu, jego pierwotna kopia zostanie przywrócona do populacji w
+        zamian za jednego z osobników.
+    </li>
+    <li>
+        Prawdopodobieństwo mutacji określa jaka jest szansa mutacji każdego z genów.
+    </li>
+    <li>
+        Dodatkowo, ustawienie niezwiązane z samym algorytmem - grawitacja, która zachowuje się analogicznie do
+        grawitacji obserwowanej w życiu codziennym.
+    </li>
+</ul>
+</body>
+</html>

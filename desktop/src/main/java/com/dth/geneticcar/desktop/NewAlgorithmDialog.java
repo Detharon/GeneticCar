@@ -169,7 +169,7 @@ public class NewAlgorithmDialog extends JDialog {
 
     private void helpButtonActionPerformed() {
 	HelpWindow help = new HelpWindow(this,
-	    HtmlReader.readHtml("res/nowy_algorytm.htm")
+	    HtmlReader.readHtml("nowy_algorytm.html")
 	    , true);
 	help.setVisible(true);
     }

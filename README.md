@@ -40,4 +40,8 @@ Originally, this project did not use Gradle, but Ant, and I haven't ported it pr
 
 - Encoding issues in various places
 - The build to distribute it (`dist`) doesn't create a proper folder structure that can hold custom data such as tracks
-- 
+
+## License
+
+This project is licensed under the Apache 2.0 License.
+Refer to the [LICENSE](LICENSE) file for the full text.

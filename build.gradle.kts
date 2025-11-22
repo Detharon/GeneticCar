@@ -22,6 +22,7 @@ allprojects {
     apply(plugin = "java")
 
     extra["appName"] = "Genetic Car"
+    extra["gdxVersion"] = "1.0.0"
 
     repositories {
         mavenCentral()

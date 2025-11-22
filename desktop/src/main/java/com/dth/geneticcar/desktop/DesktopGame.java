@@ -79,7 +79,7 @@ public class DesktopGame extends JFrame {
 		addCarsToGraph(cars);
 	    }
 	});
-	LwjglAWTCanvas canvas = new LwjglAWTCanvas(game, false);
+	LwjglAWTCanvas canvas = new LwjglAWTCanvas(game);
 	canvas.getCanvas().setSize(720, 480);
 	canvasPanel.add(canvas.getCanvas(), "shrink 0");
 

@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    // TODO: Replace them with modern alternatives from Maven
-    implementation(files("libs/gdx.jar"))
-    implementation(files("libs/gdx-sources.jar"))
+    val gdxVersion: String by rootProject.extra
+    implementation("com.badlogicgames.gdx:gdx:$gdxVersion")
+    implementation("com.badlogicgames.gdx:gdx-box2d:$gdxVersion")
 }

@@ -21,11 +21,14 @@ dependencies {
     implementation(project(":core"))
     implementation("org.jfree:jfreechart:1.0.19")
 
+    val gdxVersion: String by rootProject.extra
+    implementation("com.badlogicgames.gdx:gdx:$gdxVersion")
+    implementation("com.badlogicgames.gdx:gdx-box2d:$gdxVersion")
+    implementation("com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop")
+    implementation("com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop")
+    implementation("com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion")
+
     // TODO: Replace them with modern alternatives from Maven
-    implementation(files("libs/gdx.jar"))
-    implementation(files("libs/gdx-natives.jar"))
-    implementation(files("libs/gdx-backend-lwjgl.jar"))
-    implementation(files("libs/gdx-backend-lwjgl-natives.jar"))
     implementation(files("libs/miglayout15-swing.jar"))
 }
 

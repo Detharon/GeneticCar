@@ -20,6 +20,7 @@ repositories {
 dependencies {
     implementation(project(":core"))
     implementation("org.jfree:jfreechart:1.0.19")
+    implementation("com.miglayout:miglayout-swing:4.1")
 
     val gdxVersion: String by rootProject.extra
     implementation("com.badlogicgames.gdx:gdx:$gdxVersion")
@@ -27,9 +28,6 @@ dependencies {
     implementation("com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop")
     implementation("com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop")
     implementation("com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion")
-
-    // TODO: Replace them with modern alternatives from Maven
-    implementation(files("libs/miglayout15-swing.jar"))
 }
 
 tasks.register<JavaExec>("run") {

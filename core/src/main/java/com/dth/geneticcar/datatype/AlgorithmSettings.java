@@ -18,8 +18,8 @@ public class AlgorithmSettings {
     private int tournamentSize;
     private boolean elite;
 
-    public static final String[] CROSSOVER_METHODS = {"Wymieniaj�ca", "U�redniaj�ca", "U�redniaj�ce losowa"};
-    public static final String[] SELECTION_METHODS = {"Metoda ko�a ruletki", "Turniejowa"};
+    public static final String[] CROSSOVER_METHODS = {"Wymieniająca", "Uśredniająca", "Uśredniające losowa"};
+    public static final String[] SELECTION_METHODS = {"Metoda koła ruletki", "Turniejowa"};
     public static final String[] FITNESS_METHODS = {"Standardowa", "Min = 0", "Pierwiastek"};
 
     public AlgorithmSettings() {

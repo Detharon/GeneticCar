@@ -10,20 +10,16 @@ import com.dth.geneticcar.datatype.IndividualConstraints;
 import com.dth.geneticcar.datatype.PolarVector;
 
 public class CarChromosomeGenerator {
-    private Random r;
+    private final Random r;
 
-    private int chassisVertex;
-    private float minChassisLength, maxChassisLength;
+    private final int chassisVertex;
+    private final float minChassisLength, maxChassisLength;
 
-    private int wheels;
-    private float minWheelRadius, maxWheelRadius;
+    private final int wheels;
+    private final float minWheelRadius, maxWheelRadius;
 
     FixtureSpecs minChassisSpecs, maxChassisSpecs;
     FixtureSpecs minWheelSpecs, maxWheelSpecs;
-
-    public CarChromosomeGenerator(long seed) {
-	r = new Random(seed);
-    }
 
     public CarChromosomeGenerator(int chassisVertex, float minChassisLength, float maxChassisLength,
 				  int wheels, float minWheelRadius, float maxWheelRadius,
@@ -117,9 +113,4 @@ public class CarChromosomeGenerator {
 	    chassisDensity, chassisFriction, chassisRestitution,
 	    wheelDensity, wheelFriction, wheelRestitution);
     }
-
-    /**
-     * Helper method used to sort vectors by their angle, in ascending order
-     * @param vector
-     */
 }

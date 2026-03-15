@@ -2,9 +2,6 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath("org.robovm:robovm-gradle-plugin:1.0.0-beta-03")
-    }
 }
 
 plugins {
